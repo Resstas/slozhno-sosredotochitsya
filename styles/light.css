@@ -16,6 +16,16 @@
   --header-title-color: #ffc2e6;
   --text-shadow: #ff0070;
 
+  .decorated-zone::before {
+    border-top: 1px solid #353430;
+    border-right: 1px solid #353430;
+  }
+
+  .decorated-zone::after {
+    border-bottom: 1px solid #353430;
+    border-left: 1px solid #353430;
+  }
+
   .header__rec {
     display: none;
   }
