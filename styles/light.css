@@ -97,6 +97,21 @@
     --text-shadow: #ff0070;
   }
 
+  .page.theme_dark {
+    --accent-color: #ff0070; 
+    --header-title-color: #db00ff;
+    --text-color: #f1b2ce;
+    --bg-color: #000028;
+  }
+
+  .page {
+    background-image: url(../images/cover-image-light.png);
+  }
+
+  .header__rec {
+    display: none;
+  }
+
   .header__theme-menu-list {
     margin-block-start: 67px;
   }
