@@ -5,7 +5,6 @@
 */
 
 :root.theme_dark {
-  --accent-font: "IBM Plex mono";
   --accent-color: #ff0070;
   --header-title-color: #db00ff;
   --text-color: #f1b2ce;
@@ -17,45 +16,55 @@
     Так стили написанные ниже будут иметь больший вес,
     чем стили в медиазапросе предпочтений пользователя
   */
-  font-family: var(--accent-font, sans-serif);
+
+  font-family: "IBM Plex mono", monospace;
   background-image: url(../images/cover-image-dark.png);
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
   background-attachment: fixed;
 
+  :root.theme_dark {
+    --accent-color: #ff0070;
+    --header-title-color: #db00ff;
+    --text-color: #f1b2ce;
+    --bg-color: #000028;
+  }
+
   .header {
     margin: 10px;
     display: grid;
     position: relative;
-    height: 100vh;
+    min-height: 100vh;
+    box-sizing: border-box;
   }
 
-  .header::before {
+  .decorated-zone::before {
     position: absolute;
     content: "";
     border-top: 1px solid var(--accent-color);
     border-right: 1px solid var(--accent-color);
     width: 25px;
     height: 25px;
-    right: 0px;
+    right: 0;
+    top: 0;
   }
 
-  .header::after {
+  .decorated-zone::after {
     position: absolute;
     content: "";
     border-bottom: 1px solid var(--accent-color);
     border-left: 1px solid var(--accent-color);
     width: 25px;
     height: 25px;
-    left: 0px;
-    bottom: 0px;
+    left: 0;
+    bottom: 0;
   }
 
   .header__rec {
     position: relative;
     color: var(--accent-color);
-    font-family: var(--accent-font, sans-serif);
+    font-family: "IBM Plex mono", monospace;
     line-height: 25px;
     margin-left: auto;
     padding-right: 30px;
@@ -92,10 +101,12 @@
     font-size: 18px;
     line-height: 100%;
     padding: 2px 12px 3px 12px;
+    cursor: pointer;
   }
 
   .header__theme-menu-button_active {
     outline: 1px solid var(--accent-color);
+    pointer-events: none;
   }
 
   .header__theme-menu-button:hover {
@@ -121,11 +132,16 @@
     margin-block-start: 65px;
   }
 
+  .title-decor {
+    background-color: var(--accent-color);
+  }
+
   .header__text-wrapper {
     display: grid;
     justify-items: end;
     margin-block-start: 57px;
     margin-block-end: 57px;
+    height: fit-content;
   }
 
   .header__text {
@@ -138,14 +154,15 @@
   }
 
   .content {
-    background-color: var(--bg-color);
     padding-right: 10px;
     padding-left: 10px;
     padding-top: 40px;
+    background-color: var(--bg-color);
+    padding-bottom: 50px;
   }
 
   .content__title {
-    font-family: var(--accent-font, sans-serif);
+    font-family: "IBM Plex mono", monospace;
     font-size: 18px;
     font-weight: 700;
     color: var(--accent-color);
@@ -153,9 +170,8 @@
   }
 
   .content__subtitle {
-    font-family: var(--accent-font);
+    font-family: "IBM Plex mono", monospace;
     color: var(--bg-color);
-    background-color: var(--accent-color);
     font-weight: 700;
     font-size: 18px;
     margin-block-start: 20px;
@@ -205,45 +221,30 @@
 
   .footer {
     position: relative;
-    padding: 27px 10px 10px 10px;
-    height: 100vh;
     background-color: var(--bg-color);
-  }
-
-  .footer::before {
-    position: absolute;
-    content: "";
-    border-top: 1px solid var(--accent-color);
-    border-right: 1px solid var(--accent-color);
-    width: 25px;
-    height: 25px;
-    right: 10px;
-    top: 31px;
-  }
-
-  .footer::after {
-    position: absolute;
-    content: "";
-    border-bottom: 1px solid var(--accent-color);
-    border-left: 1px solid var(--accent-color);
-    width: 25px;
-    height: 25px;
-    left: 10px;
-    bottom: 48px;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
   }
 
   .footer__title {
     color: var(--header-title-color);
     text-shadow: 2px 2px 0px var(--accent-color);
     font-size: clamp(7.25rem, 7.0115rem + 1.0178vw, 7.5rem);
-    margin-block-start: 255px;
-    margin-block-end: 285px;
     text-align: center;
   }
 
   @media (min-width: 768px) {
     .header {
-      margin: 20px;
+      margin: 0;
+      margin-inline-end: 20px;
+      margin-block-start: 20px;
+      margin-block-end: 20px;
+    }
+
+    .decorated-zone::after {
+      left: 20px;
     }
 
     .header__theme-menu-list {
@@ -251,7 +252,6 @@
     }
 
     .header__title {
-      margin-left: -20px;
       font-size: clamp(7.5rem, 0.5625rem + 14.4531vw, 9.8125rem);
       margin-block-start: 179px;
     }
@@ -360,21 +360,11 @@
     }
 
     .footer {
-      padding: 80px 20px 20px 20px;
-    }
-
-    .footer::before {
-      top: 79px;
-      right: 21px;
-    }
-
-    .footer::after {
-      left: 19px;
+      padding-right: 20px;
+      padding-left: 20px;
     }
 
     .footer__title {
-      margin-block-start: 415px;
-      margin-block-end: 440px;
       font-size: clamp(7.5rem, 0.5625rem + 14.4531vw, 9.8125rem);
     }
   }
@@ -396,7 +386,7 @@
       grid-row: 1/2;
       display: grid;
       justify-content: center;
-      margin-inline-start: 60px;
+      margin-inline-start: 80px;
     }
 
     .header__theme-menu-list {
@@ -485,11 +475,6 @@
       margin-block-start: 0;
       grid-row: 2/3;
       grid-column: 3/4;
-    }
-
-    .footer__title {
-      margin-block-start: 261px;
-      margin-block-end: 289px;
     }
   }
 }
