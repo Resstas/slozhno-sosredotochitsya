@@ -4,6 +4,7 @@
 */
 
 :root {
+  --font-family: "IBM Plex mono", monospace;
   --accent-color: #ff0070;
   --header-title-color: #db00ff;
   --text-color: #f1b2ce;
