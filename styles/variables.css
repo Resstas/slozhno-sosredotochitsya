@@ -6,7 +6,19 @@
 :root {
   --font-family: "IBM Plex mono", monospace;
   --accent-color: #ff0070;
+  --bg-image: url(../images/cover-image-dark.png);
   --header-title-color: #db00ff;
-  --text-color: #f1b2ce;
+  --nav-color: #ff0070;
+  --rec-color: #ff0070;
+  --header-text-color: #000028;
+  --header-text-shadow: #ff0070;
   --bg-color: #000028;
+  --content-text-color: #f1b2ce;
+  --content-title-color: #ff0070;
+  --content-subtitle-color: #000028;
+  --content-shadow-color: #ff0070;
+  --footer-title-color: #db00ff;
+  --hover-color: rgba(255, 0, 112, 0.4);
+  --focus-color: #ff0070;
+  --descktop-shadow: #ff0070;
 }
